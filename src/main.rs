@@ -6,7 +6,7 @@ use std::rc::Rc;
 
 fn main() {
     let application = Application::new(
-        Some("com.example.fan_control"),
+        Some("com.octuspi.temp_monitor"),
         Default::default(),
     );
 
@@ -17,13 +17,28 @@ fn main() {
 
 fn build_ui(application: &gtk4::Application) {
     let window = ApplicationWindow::new(application);
-    window.set_title(Some("Fan Control"));
+    window.set_title(Some("Temp Monitor"));
     window.set_default_size(350, 70);
 
     let vbox = Box::new(Orientation::Vertical, 5);
     let temp_label = Label::new(Some("Temp: "));
     let update_button = Button::with_label("Update");
     let fan_button = Button::with_label("Set Fan Speed");
+
+    temp_label.set_margin_start(10);
+    temp_label.set_margin_end(10);
+    temp_label.set_margin_top(10);
+    temp_label.set_margin_bottom(10);
+
+    update_button.set_margin_start(10);
+    update_button.set_margin_end(10);
+    update_button.set_margin_top(10);
+    update_button.set_margin_bottom(10);
+
+    fan_button.set_margin_start(10);
+    fan_button.set_margin_end(10);
+    fan_button.set_margin_top(10);
+    fan_button.set_margin_bottom(10);
 
     vbox.append(&temp_label);
     vbox.append(&update_button);
